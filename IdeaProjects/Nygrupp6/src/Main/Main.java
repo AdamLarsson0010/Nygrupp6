@@ -91,7 +91,7 @@ public class Main {
             System.out.println("Remove Booking option");
 
         } else if (choice2 == 5) {
-            System.out.println("Exit option");
+            System.out.println("You have exited bookings");
         }
     }
 
@@ -137,7 +137,7 @@ public class Main {
             System.out.println("Remove Customer option");
 
         } else if (choice3 == 5) {
-            System.out.println("Exit option");
+            System.out.println("You have exited customers");
         }
     }
     private void ViewRoomOptions () {
@@ -164,14 +164,12 @@ public class Main {
             Room room5 = new Room(5, true, 1000, false, 6);
             rooms.add(room1); rooms.add(room2); rooms.add(room3); rooms.add(room4); rooms.add(room5);
             System.out.println(rooms);
-            System.out.println("View Room option");
 
         } else if (choice4 == 4) {
             System.out.println("Remove Room option");
 
         } else if (choice4 == 5) {
-            System.out.println("Exit option");
-
+            System.out.println("You have exited rooms");
         }
     }
 }
