@@ -12,8 +12,18 @@ public class Main {
     ArrayList<Room> rooms = new ArrayList<Room>();
     static Main myApp2 = new Main();
 
+    private void setUpData(){
+        Room room1 = new Room(1, false, 200, false, 2);
+        Room room2 = new Room(2, false, 400, false, 2);
+        Room room3 = new Room(3, false, 600, false, 3);
+        Room room4 = new Room(4, true, 800, false, 4);
+        Room room5 = new Room(5, true, 1000, false, 6);
+        rooms.add(room1); rooms.add(room2); rooms.add(room3); rooms.add(room4); rooms.add(room5);
+    }
+
     public static void main(String[] args) {
         Main myApp = new Main();
+        myApp.setUpData();
         int choice;
 
         do {
@@ -50,7 +60,7 @@ public class Main {
         }
         System.out.println(bookings);
         System.out.println("Which booking would you like to edit/remove? ");
-    }
+        }
 
     private void ViewBookingOptions() {
         System.out.println("1. New booking ");
@@ -63,6 +73,7 @@ public class Main {
         choice2 = input.nextInt();
         if (choice2 == 1) {
             System.out.println("What room do you want to book? ");
+            System.out.println(rooms);
             input.nextLine();
             String roomNr = input.nextLine();
             System.out.println("Enter your social security number: ");
@@ -138,6 +149,30 @@ public class Main {
             System.out.println("You have exited customers");
         }
     }
+
+    private void addRoom () {
+        System.out.println("Enter new room number: ");
+        int newRoom = input.nextInt();
+        System.out.println("Does the new room have a balcony? ");
+        boolean answer = input.nextBoolean();
+        System.out.println("What is the price per night? ");
+        double price = input.nextDouble();
+        System.out.println("Is the new room booked? ");
+        boolean answerBooked = input.nextBoolean();
+        System.out.println("How many number of beds does the new room have? ");
+        int beds = input.nextInt();
+        Room room = new Room(newRoom, answer, price, answerBooked, beds);
+        for (int i = 0; i < rooms.size(); i++) {
+               if(rooms.get(i).getRoomNb() == newRoom) {
+                   System.out.println("Room already exists");
+                   break;
+               } else {
+                   rooms.add(room);
+                   break;
+               }
+        }
+    }
+
     private void ViewRoomOptions () {
         System.out.println("1. Add room ");
         System.out.println("2. Edit room ");
@@ -148,19 +183,12 @@ public class Main {
         int choice4;
         choice4 = input.nextInt();
         if (choice4 == 1) {
-
-            System.out.println("Add room option");
+            myApp2.addRoom();
 
         } else if (choice4 == 2) {
             System.out.println("Edit Room option");
 
         } else if (choice4 == 3) {
-            Room room1 = new Room(1, false, 200, false, 2);
-            Room room2 = new Room(2, false, 400, false, 2);
-            Room room3 = new Room(3, false, 600, false, 3);
-            Room room4 = new Room(4, true, 800, false, 4);
-            Room room5 = new Room(5, true, 1000, false, 6);
-            rooms.add(room1); rooms.add(room2); rooms.add(room3); rooms.add(room4); rooms.add(room5);
             System.out.println(rooms);
 
         } else if (choice4 == 4) {
