@@ -49,7 +49,7 @@ public class Main {
             System.out.println(bookings.get(i - 1));
         }
         System.out.println(bookings);
-        System.out.println("Which booking would you like to edit? ");
+        System.out.println("Which booking would you like to edit/remove? ");
     }
 
     private void ViewBookingOptions() {
@@ -79,16 +79,14 @@ public class Main {
 
         } else if (choice2 == 2) {
             myApp2.GetBooking();
-            System.out.println("Edit Booking option");
 
         } else if (choice2 == 3) {
-            System.out.println("View Booking option");
             for (Booking booking : bookings) {
                 System.out.println(booking);
             }
 
         } else if (choice2 == 4) {
-            System.out.println("Remove Booking option");
+            myApp2.GetBooking();
 
         } else if (choice2 == 5) {
             System.out.println("You have exited bookings");
@@ -99,6 +97,8 @@ public class Main {
         for (int i = 0; i < customers.size(); i++) {
             System.out.println(customers.get(i - 1));
         }
+        System.out.println(customers);
+        System.out.println("Which customer would you like to edit/remove? ");
     }
 
     private void ViewCustomerOptions() {
@@ -111,9 +111,9 @@ public class Main {
         int choice3;
         choice3 = input.nextInt();
         if (choice3 == 1) {
+            input.nextLine();
             System.out.println("Enter your social security number: ");
             String ssn = input.nextLine();
-            input.nextLine();
             System.out.println("Enter your name: ");
             String name = input.nextLine();
             System.out.println("Enter your address: ");
@@ -124,17 +124,15 @@ public class Main {
             customers.add(customer);
 
         } else if (choice3 == 2) {
-            // System.out.println(myApp2.GetCustomer());
+            myApp2.GetCustomer();
 
         } else if (choice3 == 3) {
-            System.out.println("View Customer option");
             for (Customer customer : customers) {
                 System.out.println(customer);
             }
 
         } else if (choice3 == 4) {
             myApp2.GetCustomer();
-            System.out.println("Remove Customer option");
 
         } else if (choice3 == 5) {
             System.out.println("You have exited customers");
